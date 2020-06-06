@@ -7,9 +7,9 @@ This server is to allow a mobile device (main) to share its right of accessing I
 Development
 -----------
 On Linux 
-    $ export FLASK_ENV=development
-    $ flask db-init-data
-    $ flask run
+    >$ export FLASK_ENV=development
+    >$ flask db-init-data
+    >$ flask run
 
 Or on Windows cmd::
 
