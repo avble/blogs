@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+access-control page
+{% endblock %}
+
+{% block content %}
+  <table>
+    <tr>
+      <!-- <th> No. </th> -->
+      <th> Code </th>
+      <th> ShareInfo </th>
+      <th> User </th>
+      <th> Action </th>
+    </tr>
+  {% for accesscontrol in accesscontrols %}
+        <tr>
+          <!-- <th> {{no}} </th> -->
+          <th> {{ accesscontrol['code'] }} </th>
+          <th> {{ accesscontrol['shareinfo'] }} </th>
+          <th> User </th>
+          <th> 
+            <form action="{{ url_for('accesscontrol.accesscontrol_delete', accesscontrol_id=accesscontrol['code']) }}">
+             <input type="submit" method=POST value="Delete">   
+            </form>
+          </th>
+        </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

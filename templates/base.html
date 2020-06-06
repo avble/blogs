@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<head>
+
+<style>
+
+/* 
+body: center, standard width, 
+*/
+body {
+  max-width: 960px;
+  margin: auto;
+}
+
+/*
+h1, h2, h3, h4, h5, h6 {
+  font-family: serif;
+  color: #377ba8;
+  margin: 1rem 0;
+}
+*/
+
+/*
+a {
+  color: #377ba8;
+}
+*/
+
+/*
+hr {
+  border: none;
+  border-top: 1px solid lightgray;
+}
+*/
+
+nav {
+  background: lightblue;
+  display: flex;
+}
+
+
+nav h1 {
+  flex: auto;
+  margin: 0;
+}
+
+/*
+nav h1 a {
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+}
+*/
+
+nav ul  {
+  display: flex;
+  list-style: none;
+  margin: 0; 
+}
+
+
+nav ul li a, nav ul li span, header .action {
+  display: block;
+  padding: 0.5rem;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+.content {
+  padding: 0 1rem 1rem;
+}
+
+.content > header {
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: flex-end;
+}
+
+.content > header h1 {
+  flex: auto;
+  margin: 1rem 0 0.25rem 0;
+}
+
+.content:last-child {
+  margin-bottom: 0;
+}
+
+.content form {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content label {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.content input, .content textarea {
+  margin-bottom: 1em;
+}
+
+.content textarea {
+  min-height: 12em;
+  resize: vertical;
+}
+
+.flash {
+  margin: 1em 0;
+  padding: 1em;
+  background: #cae6f6;
+  border: 1px solid #377ba8;
+}
+
+
+</style>
+ {% block head %}
+ <title>{% block title %}{% endblock %}</title>
+ {% endblock %}
+</head>
+
+<body>
+<nav>
+  <h1><a href="{{ url_for('accesscontrol.index') }}">Access-Control</a></h1>
+  <ul>
+    {% if g.user %}
+      <li><span>Welcome {{ g.user['username'] }}</span> </li>
+      <li><a href="{{ url_for('auth.auth_logout') }}">Log Out</a> </li>
+    {% else %}
+      <li><a href="{{ url_for('auth.auth_login') }}">Log In</a> </li>
+    {% endif %}
+  </ul>
+</nav>
+
+<section class='content'>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+  {% block content %}{% endblock %}
+</section>
+
+</body>
