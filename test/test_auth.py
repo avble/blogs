@@ -11,7 +11,6 @@ def test_view_login(client):
     response = client.post('/auth/login', data={'username':'admin', 'password':'admin'})
     assert "Redirecting..." in response.data.decode('utf-8')
 
-
 def test_view_login_1(client):
     response = client.get("/auth/login")
     assert "Username" in response.data.decode('utf-8')

@@ -1,7 +1,4 @@
 import pytest
-from flask import g
-from flask import session
-
 
 # View
 def test_view_index(client, auth):

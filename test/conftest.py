@@ -3,13 +3,11 @@ import sys
 import tempfile
 import pytest
 
-dir_test = os.path.dirname(os.path.realpath(__file__))
-sys.path.insert(0, dir_test + "/../..")
+#dir_test = os.path.dirname(os.path.realpath(__file__))
+#sys.path.insert(0, dir_test + "/../..")
 
-
-from flaskAccessControl import create_app
-
-from flaskAccessControl.db import db_create_database, db_get
+from access_control import create_app
+from access_control.db import db_create_database, db_get
 
 with open(os.path.join(os.path.dirname(__file__), "data.sql"), "rb") as f:
     _data_sql = f.read().decode("utf8")

@@ -2,9 +2,9 @@ import os
 
 from flask import Flask
 
-from flaskAccessControl import db
-from flaskAccessControl import accesscontrol
-from flaskAccessControl import auth
+from . import db
+from . import accesscontrol
+from . import auth
 
 
 def create_app(test_config=None): 
