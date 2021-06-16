@@ -6,7 +6,6 @@ import hashlib
 from time import gmtime, strftime
 from random import random
 
-
 from flask import Flask
 from flask import request
 from flask import redirect
@@ -16,7 +15,6 @@ from flask import Blueprint
 
 from .db import db_get
 from .auth import login_required
-
 
 bp = Blueprint("accesscontrol", __name__)
 

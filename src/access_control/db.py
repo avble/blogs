@@ -16,7 +16,6 @@ def db_add_row_data():
     with current_app.open_resource("test_data.sql") as f:
         db.executescript(f.read().decode("utf8"))
 
-
 def db_add_user(user, password):
     db = db_get()
     db.execute("INSERT INTO user (username, password) VALUES (\"%s\", \"%s\")" % (user, password))
