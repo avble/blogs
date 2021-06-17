@@ -6,10 +6,11 @@ This web-application is to allow a mobile device (main) to share its right of ac
 
 Development
 -----------
-On Linux 
-    >$ export FLASK_ENV=development
-    >$ flask db-init-data
-    >$ flask run
+On Linux:
+
+> $ export FLASK_ENV=development
+> $ flask db-init-data
+> $ flask run
 
 Or on Windows cmd::
 
